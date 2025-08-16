@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Backtesting Platform Frontend
 
-First, run the development server:
+This is the frontend for the Backtesting Platform, built with Next.js and React. It provides an interactive web interface for configuring, running, and visualizing financial strategy backtests, fundamental analysis, and news insights.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+- **Dashboard**: Visualize backtest results, monthly returns, and strategy comparisons.
+- **Strategy Configuration**: Set up and customize trading strategies.
+- **Fundamental Analysis**: View key financial metrics and analysis.
+- **Stock News**: Display relevant news and sentiment for selected assets.
+- **Authentication**: OAuth integration for secure access.
+
+## Tech Stack & Dependencies
+- **Next.js**: React-based framework for server-side rendering and routing.
+- **React**: UI library for building interactive components.
+- **Tailwind CSS / PostCSS**: For modern, responsive styling.
+- **ESLint**: Code linting and quality enforcement.
+- **pnpm**: Fast, disk-efficient package manager.
+- **Vercel**: Deployment platform (see `.vercel/project.json`).
+- **Other Libraries**: See `package.json` for a complete list (e.g., charting, authentication, API handling).
+
+## Project Structure
+```
+backtesting-platform-frontend/
+├── src/
+│   ├── app/                 # Main app entry, global styles, layout
+│   ├── components/          # UI components (dashboard, charts, analysis, etc.)
+│   ├── services/            # API service layer
+├── public/                  # Static assets (SVGs, icons)
+├── .env.local               # Environment variables
+├── package.json             # Project dependencies
+├── next.config.mjs          # Next.js configuration
+├── postcss.config.mjs       # PostCSS configuration
+├── eslint.config.mjs        # ESLint configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting Started
+1. **Install dependencies**:
+	```powershell
+	pnpm install
+	```
+2. **Run the development server**:
+	```powershell
+	pnpm run dev
+	```
+3. **Open in browser**:
+	Navigate to `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Deployment
+- Deploy to Vercel for production. See `.vercel/project.json` for configuration.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+This project is licensed under the MIT License.
