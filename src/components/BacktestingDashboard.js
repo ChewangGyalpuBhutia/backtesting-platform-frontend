@@ -125,75 +125,74 @@ const BacktestingDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--background)' }}>
-      {/* Professional Header */}
-      <header style={{ background: 'var(--surface)', borderBottom: '1px solid var(--border)', boxShadow: 'var(--shadow)' }}>
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo and Title */}
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg" style={{ background: 'var(--primary)' }}>
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                </svg>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>
-                  Backtesting Platform
-                </h1>
-                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-                  Professional Trading Strategy Analysis
-                </p>
-              </div>
-            </div>
-
-
-            {/* Header Actions */}
-            <div className="flex items-center space-x-4">
-              {/* Connection Status */}
-              <div className="status-indicator status-success">
-                <div className="w-2 h-2 rounded-full mr-2 animate-pulse" style={{ background: 'var(--success)' }}></div>
-                Backend Connected
-              </div>
-                          {/* OAuth Button */}
-            <OAuthButton />
-              
-              {/* Action Buttons */}
-              <button
-                onClick={runBacktest}
-                disabled={loading || !config}
-                className={loading || !config ? 'btn-primary opacity-50 cursor-not-allowed flex items-center"' : 'btn-primary flex items-center"'}
-              >
-                {loading ? (
-                  <div className="flex items-center">
-                    <div className="loading-spinner mr-2"></div>
-                    Running Backtest...
-                  </div>
-                ) : (
-                  <>
-                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/>
-                    </svg>
-                    Run Backtest
-                  </>
-                )}
-              </button>
-              
-              {results && (
-                <button
-                  onClick={clearResults}
-                  className="btn-secondary flex items-center"
-                >
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd"/>
+      <div className="min-h-screen" style={{ background: 'var(--background)' }}>
+        {/* Professional Header */}
+        <header style={{ background: 'var(--surface)', borderBottom: '1px solid var(--border)', boxShadow: 'var(--shadow)' }}>
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+              {/* Logo and Title */}
+              <div className="flex flex-col items-center justify-center space-y-2 mb-4 lg:mb-0 lg:flex-row lg:space-y-0 lg:space-x-4 lg:items-center lg:justify-start">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl shadow-lg mb-2 lg:mb-0" style={{ background: 'var(--primary)' }}>
+                  <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                   </svg>
-                  Clear Results
+                </div>
+                <div className="text-center lg:text-left">
+                  <h1 className="text-2xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
+                    Backtesting Platform
+                  </h1>
+                  <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
+                    Professional Trading Strategy Analysis
+                  </p>
+                </div>
+              </div>
+
+              {/* Header Actions */}
+              <div className="flex flex-col items-center justify-center space-y-3 p-3 rounded-xl shadow-md bg-[var(--surface-light)] lg:flex-row lg:space-y-0 lg:space-x-4 lg:p-0 lg:rounded-none lg:shadow-none lg:bg-transparent">
+                {/* Connection Status */}
+                <div className="status-indicator status-success flex items-center w-full lg:w-auto justify-center">
+                  <div className="w-2 h-2 rounded-full mr-2 animate-pulse" style={{ background: 'var(--success)' }}></div>
+                  <span className="text-sm">Backend Connected</span>
+                </div>
+                {/* OAuth Button */}
+                <div className="w-full lg:w-auto">
+                  <OAuthButton />
+                </div>
+                {/* Action Buttons */}
+                <button
+                  onClick={runBacktest}
+                  disabled={loading || !config}
+                  className={loading || !config ? 'btn-primary opacity-50 cursor-not-allowed flex items-center w-full lg:w-auto justify-center' : 'btn-primary flex items-center w-full lg:w-auto justify-center'}
+                >
+                  {loading ? (
+                    <div className="flex items-center justify-center">
+                      <div className="loading-spinner mr-2"></div>
+                      Running Backtest...
+                    </div>
+                  ) : (
+                    <>
+                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"/>
+                      </svg>
+                      Run Backtest
+                    </>
+                  )}
                 </button>
-              )}
+                {results && (
+                  <button
+                    onClick={clearResults}
+                    className="btn-secondary flex items-center w-full lg:w-auto justify-center"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd"/>
+                    </svg>
+                    Clear Results
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-8">
