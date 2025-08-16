@@ -20,6 +20,7 @@ This is the frontend for the Backtesting Platform, built with Next.js and React.
 - **Other Libraries**: See `package.json` for a complete list (e.g., charting, authentication, API handling).
 
 ## Project Structure
+
 ```
 backtesting-platform-frontend/
 ├── src/
@@ -33,6 +34,18 @@ backtesting-platform-frontend/
 ├── postcss.config.mjs       # PostCSS configuration
 ├── eslint.config.mjs        # ESLint configuration
 ```
+
+## Environment Variables (.env.local)
+Add the following key values to your `.env.local` file for OAuth and NextAuth setup:
+
+```env
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+NEXT_PUBLIC_NEXTAUTH_URL=https://backtesting-platform-frontend.vercel.app
+NEXTAUTH_SECRET=your-very-strong-random-secret
+```
+
+Replace `your-google-client-id`, `your-google-client-secret`, and `your-very-strong-random-secret` with your actual credentials. The `NEXT_PUBLIC_NEXTAUTH_URL` should match your deployed frontend URL.
 
 ## Getting Started
 1. **Install dependencies**:
