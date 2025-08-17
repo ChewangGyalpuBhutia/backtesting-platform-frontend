@@ -9,7 +9,7 @@ const StockNews = ({ symbol }) => {
   useEffect(() => {
     if (!symbol) return;
     setLoading(true);
-    fetch(`${API_BASE_URL}/api/news?symbol=${symbol}`)
+    fetch(`http://localhost:8000/api/news?symbol=${symbol}`)
       .then(res => res.json())
       .then(json => {
         console.log(json)
@@ -47,7 +47,7 @@ const StockNews = ({ symbol }) => {
               {item.title}
             </a>
             <div className="text-sm text-gray-500 mt-1">
-              {item.publisher} &middot; {item.providerPublishTime ? new Date(item.providerPublishTime * 1000).toLocaleString() : ''}
+              {item.publisher}
             </div>
             {item.summary && <div className="mt-2 text-gray-700 text-sm">{item.summary}</div>}
           </li>
